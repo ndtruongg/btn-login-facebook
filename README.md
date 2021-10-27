@@ -5,20 +5,24 @@
 - Code
 
 ```
-<BtnLoginFacebook @profile="getProfile">
+<BtnLoginFacebook @profile="getProfile" @token="getToken">
   Login with facebook
 </BtnLoginFacebook>
 
-// export default {
 methods:
-  getProfile(data) {
-    console.log(data)
+  getProfile(profile) {
+    // code
+  },
+  getToken(token) {
+    // code
   }
 ```
 
 - Create env variable `VUE_APP_FACEBOOK_APP_ID`
 
-- Get profile by emit `@profile`
+- Get profile by emit `@profile`, get token by emit `@token`
+
+- Run your app with `https` by add `"serve:ssl": "vue-cli-service serve --https --open --public localhost:8080"` to `scripts` in `package.json`
 
 - Profile data response:
 
@@ -36,5 +40,3 @@ methods:
     }
 }
 ```
-
-- Token:

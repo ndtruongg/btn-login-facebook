@@ -3,7 +3,7 @@ import BtnLoginFacebook from './BtnLoginFacebook.vue'
 function install(Vue) {
   if (install.installed) return
   install.installed = true
-  Vue.component('BtnLoginFacebook', BtnLoginFacebook)
+  Vue.component('btn-login-facebook', BtnLoginFacebook)
 }
 
 const plugin = {

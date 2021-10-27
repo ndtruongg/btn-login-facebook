@@ -36,11 +36,14 @@ export default {
       const _vue = this
 
       window.FB.login(async function (response) {
-        if (response.authResponse) {
-          _vue.getProfile(response.authResponse)
-        } else {
-          alert('User cancelled login or did not fully authorize.')
+        let authResponse = response.authResponse
+        if (authResponse) {
+          _vue.$emit('token', authResponse.accessToken)
+          _vue.getProfile(authResponse)
         }
+        //  else {
+        //   alert('User cancelled login or did not fully authorize.')
+        // }
       })
       return false
     },
@@ -63,7 +66,9 @@ export default {
           `https://graph.facebook.com/${data.userID}?fields=id,name,email,picture&access_token=${data.accessToken}`
         )
         .then((response) => {
-          this.$emit('profile', response.data)
+          let { name } = response.data
+          let avatar = response.data.picture.data.url
+          this.$emit('profile', { name, avatar })
         })
         .catch()
     }
