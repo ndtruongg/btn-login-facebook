@@ -1,21 +1,32 @@
 # btn-login-facebook
 
-## Config
+Login with Facebook in Vuejs
 
-- Code
+## Import to your app `main.js`
+
+```
+import BtnLoginFacebook from 'btn-login-facebook'
+Vue.use(BtnLoginFacebook)
+```
+
+- Use in your component
 
 ```
 <BtnLoginFacebook @profile="getProfile" @token="getToken">
   Login with facebook
 </BtnLoginFacebook>
 
-methods:
-  getProfile(profile) {
-    // code
-  },
-  getToken(token) {
-    // code
-  }
+<script>
+export default {
+  methods:
+    getProfile(profile) {
+      // code
+    },
+    getToken(token) {
+      // code
+    }
+  ...........
+}
 ```
 
 - Create env variable `VUE_APP_FACEBOOK_APP_ID`
